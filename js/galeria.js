@@ -38,34 +38,38 @@ function agregarGaleria() {
     array_galeria.push(Foto);
     mostrarenGaleria(array_galeria);
   }
-
-  console.log("datos:" + array_galeria);
+  console.log(array_galeria);
 }
 
-function mostrarenGaleria(arrayfotos) { //duda recorrer array 
-  console.log(arrayfotos);
-  var galeria = document.querySelector("#galeria")
+function mostrarenGaleria(arrayfotos) {
+  var galeria = document.querySelector("#galeria");
   //borrar el contenido anterior
-  galeria.innerHTML = ''
-  //recorrer el array e ir agregando imagenes
-  for (f in arrayfotos){
-      var nombreFoto = arrayfotos[f]
-      console.log(nombreFoto)
-      console.log('agregando: '+f)
-      galeria.innerHTML += `<img src="img/${nombreFoto}" >`
+  galeria.innerHTML = "";
+  for (f in arrayfotos) {
+    var nombreFoto = arrayfotos[f];
+    galeria.innerHTML += `
+      <div class='imagenGaleria'>
+        <img src="img/${nombreFoto}" >
+        <img class='borrar' src='img/borrar.png' >
+      </div>`;
+    let crucesBorrar = document.querySelectorAll(".borrar");
+    for (i = 0; i < crucesBorrar.length; i++) {
+      crucesBorrar[i].onclick = borrarFoto;
+    }
   }
-  
 }
 
-
-//codigo prueba
-/*let objetoImagen = document.createElement("img");
-  for (f in arrayfotos) {
-    objetoImagen.setAttribute("src", `img/${arrayfotos[f]}`);
-    objetoImagen.setAttribute("id", arrayfotos[f]);
-    console.log(objetoImagen);
-  }
-
-  document.querySelector(
-    "#galeria"
-  ).innerHTML += `<img src="img/${arrayfotos[f]}" >`;*/
+function borrarFoto() {
+  console.log(this);
+  var cajaContenedoraImagen = this.parentNode;
+  console.log(cajaContenedoraImagen);
+  var seccionGaleria = cajaContenedoraImagen.parentNode;
+  console.log(seccionGaleria);
+  var indexFoto = Array.prototype.indexOf.call(
+    seccionGaleria.children,
+    cajaContenedoraImagen
+  );
+  console.log(indexFoto);
+  array_galeria.splice(indexFoto, 1);
+  seccionGaleria.removeChild(cajaContenedoraImagen);
+}

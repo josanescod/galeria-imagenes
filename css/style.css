@@ -21,6 +21,7 @@ h1 span {
 
 #galeria{
     border: 1px solid orange;
+    padding: 20px;
 }
 
 #galeria img{
@@ -34,9 +35,30 @@ h1 span {
 #fototeca {
   margin-top:10px;
   border: 1px solid blue;  
+  padding: 20px;
 }
 
 #fototeca img {
     width: 120px;
     height: 90px;
+}
+
+
+.borrar{
+    cursor:pointer;
+    
+}
+
+#galeria img.borrar {
+    width: 20px;
+    height: 20px;
+    position:absolute;
+    top:5px;
+    right:5px;
+}
+
+.imagenGaleria{
+    position: relative;
+    background-color:grey;
+    display:inline-block;
 }
