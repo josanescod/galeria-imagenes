@@ -24,7 +24,7 @@ function cargaImagenes() {
     objetoImagen.addEventListener("dblclick", agregarGaleria);
   }
 
-  let objetoImagen = document.createElement("img");
+  let objetoImagen = document.createElement("img");//?
   objetoImagen.setAttribute("src", "img/");
 }
 
@@ -60,16 +60,12 @@ function mostrarenGaleria(arrayfotos) {
 }
 
 function borrarFoto() {
-  console.log(this);
   var cajaContenedoraImagen = this.parentNode;
-  console.log(cajaContenedoraImagen);
   var seccionGaleria = cajaContenedoraImagen.parentNode;
-  console.log(seccionGaleria);
   var indexFoto = Array.prototype.indexOf.call(
     seccionGaleria.children,
     cajaContenedoraImagen
   );
-  console.log(indexFoto);
   array_galeria.splice(indexFoto, 1);
   seccionGaleria.removeChild(cajaContenedoraImagen);
 }
