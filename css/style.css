@@ -1,0 +1,39 @@
+h1 {
+  color: blue;
+  text-align: center;
+}
+
+h1 span {
+  background: rgba(246, 243, 243, 0.5);
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+#contenidor {
+  width: 80%;
+  margin: 0 auto;
+  
+  padding: 30px;
+  border-radius: 5px;
+  text-align: center;
+  background: rgba(246, 243, 243, 0.5);
+}
+
+#galeria{
+    border: 1px solid orange;
+}
+
+#fototeca galeria {
+    width: 260px;
+    height: 200px;
+}
+
+#fototeca {
+  margin-top:10px;
+  border: 1px solid blue;  
+}
+
+#fototeca img {
+    width: 120px;
+    height: 90px;
+}
