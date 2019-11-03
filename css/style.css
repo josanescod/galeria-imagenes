@@ -23,9 +23,12 @@ h1 span {
     border: 1px solid orange;
 }
 
-#fototeca galeria {
-    width: 260px;
-    height: 200px;
+#galeria img{
+    
+        width: 260px;
+        height: 200px;
+
+    
 }
 
 #fototeca {
