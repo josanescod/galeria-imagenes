@@ -12,53 +12,48 @@ h1 span {
 #contenidor {
   width: 80%;
   margin: 0 auto;
-  
+
   padding: 30px;
   border-radius: 5px;
   text-align: center;
   background: rgba(246, 243, 243, 0.5);
 }
 
-#galeria{
-    border: 1px solid orange;
-    padding: 20px;
+#galeria {
+  border: 1px solid orange;
+  padding: 20px;
 }
 
-#galeria img{
-    
-        width: 260px;
-        height: 200px;
-
-    
+#galeria img {
+  width: 260px;
+  height: 200px;
 }
 
 #fototeca {
-  margin-top:10px;
-  border: 1px solid blue;  
+  margin-top: 10px;
+  border: 1px solid blue;
   padding: 20px;
 }
 
 #fototeca img {
-    width: 120px;
-    height: 90px;
+  width: 120px;
+  height: 90px;
 }
 
-
-.borrar{
-    cursor:pointer;
-    
+.borrar {
+  cursor: pointer;
 }
 
 #galeria img.borrar {
-    width: 20px;
-    height: 20px;
-    position:absolute;
-    top:5px;
-    right:5px;
+  width: 20px;
+  height: 20px;
+  position: absolute;
+  top: 5px;
+  right: 5px;
 }
 
-.imagenGaleria{
-    position: relative;
-    background-color:grey;
-    display:inline-block;
+.imagenGaleria {
+  position: relative;
+  background-color: grey;
+  display: inline-block;
 }
