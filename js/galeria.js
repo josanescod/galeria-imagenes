@@ -15,7 +15,6 @@ window.onload = () => {
 };
 
 function cargaImagenes() {
-  //recorrer array
   for (nombreFoto in array_fototeca) {
     let objetoImagen = document.createElement("img");
     objetoImagen.setAttribute("src", `img/${array_fototeca[nombreFoto]}`);
@@ -23,15 +22,12 @@ function cargaImagenes() {
     document.querySelector("#fototeca").append(objetoImagen);
     objetoImagen.addEventListener("dblclick", agregarGaleria);
   }
-
-  let objetoImagen = document.createElement("img");//?
-  objetoImagen.setAttribute("src", "img/");
 }
 
 function agregarGaleria() {
   let rutaFoto = this.getAttribute("src");
   let slash = rutaFoto.lastIndexOf("/");
-  var Foto = rutaFoto.substring(slash + 1);
+  let Foto = rutaFoto.substring(slash + 1);
   if (array_galeria.includes(Foto)) {
     alert("la imatge ja existeix");
   } else {
@@ -42,11 +38,10 @@ function agregarGaleria() {
 }
 
 function mostrarenGaleria(arrayfotos) {
-  var galeria = document.querySelector("#galeria");
-  //borrar el contenido anterior
+  let galeria = document.querySelector("#galeria");
   galeria.innerHTML = "";
   for (f in arrayfotos) {
-    var nombreFoto = arrayfotos[f];
+    let nombreFoto = arrayfotos[f];
     galeria.innerHTML += `
       <div class='imagenGaleria'>
         <img src="img/${nombreFoto}" >
@@ -60,9 +55,9 @@ function mostrarenGaleria(arrayfotos) {
 }
 
 function borrarFoto() {
-  var cajaContenedoraImagen = this.parentNode;
-  var seccionGaleria = cajaContenedoraImagen.parentNode;
-  var indexFoto = Array.prototype.indexOf.call(
+  let cajaContenedoraImagen = this.parentNode;
+  let seccionGaleria = cajaContenedoraImagen.parentNode;
+  let indexFoto = Array.prototype.indexOf.call(
     seccionGaleria.children,
     cajaContenedoraImagen
   );
