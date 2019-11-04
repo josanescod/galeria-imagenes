@@ -40,11 +40,11 @@ function agregarGaleria() {
   console.log(array_galeria);
 }
 
-function mostrarenGaleria(arrayfotos) {
+function mostrarenGaleria(arrayFotos) {
   let galeria = document.querySelector("#galeria");
   galeria.innerHTML = "";
-  for (f in arrayfotos) {
-    let nombreFoto = arrayfotos[f];
+  for (f in arrayFotos) {
+    let nombreFoto = arrayFotos[f];
     galeria.innerHTML += `
       <div class='imagenGaleria'>
         <img class='foto' src="img/${nombreFoto}" >
