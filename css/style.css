@@ -1,6 +1,8 @@
 h1 {
-  color: blue;
+  color: #c43434;
   text-align: center;
+  font-weight: bold;
+  font-family: "Nixie One", cursive;
 }
 
 h1 span {
@@ -12,7 +14,6 @@ h1 span {
 #contenidor {
   width: 80%;
   margin: 0 auto;
-
   padding: 30px;
   border-radius: 5px;
   text-align: center;
@@ -70,7 +71,6 @@ h1 span {
   align-items: center;
 }
 
-
 #flecha_izquierda,
 #flecha_derecha {
   width: 50px;
@@ -81,6 +81,5 @@ h1 span {
 }
 
 #imagen_ampliada {
-  width: 50%;;
-  
+  width: 50%;
 }
