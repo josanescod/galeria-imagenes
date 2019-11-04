@@ -9,6 +9,7 @@ var array_fototeca = [
   "casa8.jpg"
 ];
 var array_galeria = [];
+var posicion;
 
 window.onload = () => {
   cargaImagenes();
@@ -50,9 +51,9 @@ function mostrarenGaleria(arrayfotos) {
         <img class='borrar' src='img/borrar.png' >
       </div>`;
   }
-  let crucesBorrar = document.querySelectorAll(".borrar");
-  for (i = 0; i < crucesBorrar.length; i++) {
-    crucesBorrar[i].onclick = borrarFoto;
+  let botonBorrar = document.querySelectorAll(".borrar");
+  for (i = 0; i < botonBorrar.length; i++) {
+    botonBorrar[i].onclick = borrarFoto;
   }
 
   let imagenesGaleria = document.querySelectorAll(".foto");
@@ -84,37 +85,44 @@ function cerrarImagenAmpliada() {
   let imagen = document.querySelector("#caja_imagen");
   imagen.addEventListener("click", function() {
     $("#caja_imagen").fadeOut(1000, "linear");
-    //imagen.style.display = "none";
   });
 }
 
 function activarFlechas() {
   let izquierda = document.querySelector("#flecha_izquierda");
   let derecha = document.querySelector("#flecha_derecha");
-  izquierda.addEventListener("click", muestraAmpliadaAnterior);
-  derecha.addEventListener("click", muestraAmpliadaSiguiente);
+  izquierda.addEventListener("click", Anterior);
+  derecha.addEventListener("click", Siguiente);
 }
 
-function muestraAmpliadaAnterior(event){
-  event.stopPropagation()
-  console.log('anterior')
-  //saber en que posicion del array esta la imagen actual
-
-  //restarle  1 a la posicion
-
-  //si llegamos al inicio actualizar la variable a la ultima posicion
-
-  //recuperar del array galeria el nombre de la imagen y canviar el atributo src de la imagen del lightbox
+function Siguiente(event) {
+  event.stopPropagation();
+  let imagen_ampliada = document.querySelector("#imagen_ampliada");
+  let rutaFoto = imagen_ampliada.getAttribute("src");
+  let slash = rutaFoto.lastIndexOf("/");
+  let foto = rutaFoto.substring(slash + 1);
+  posicion = array_galeria.indexOf(foto);
+  if (posicion == array_galeria.length - 1) {
+    posicion = 0;
+  } else {
+    posicion += 1;
+  }
+  rutaFoto = array_galeria[posicion];
+  imagen_ampliada.setAttribute("src", "img/" + rutaFoto);
 }
 
-function muestraAmpliadaSiguiente(event){
-  event.stopPropagation()
-  console.log('siguiente')
-  //saber en que posicion del array esta la imagen actual
-
-  //aumentarle  1 a la posicion
-
-  //si llegamos al final actualizar la variable a la posicion 0 o inicio del array
-
-  //recuperar del array galeria el nombre de la imagen y canviar el atributo src de la imagen del lightbox
+function Anterior(event) {
+  event.stopPropagation();
+  let imagen_ampliada = document.querySelector("#imagen_ampliada");
+  let rutaFoto = imagen_ampliada.getAttribute("src");
+  let slash = rutaFoto.lastIndexOf("/");
+  let foto = rutaFoto.substring(slash + 1);
+  posicion = array_galeria.indexOf(foto);
+  if (posicion == 0) {
+    posicion = array_galeria.length - 1;
+  } else {
+    posicion -= 1;
+  }
+  rutaFoto = array_galeria[posicion];
+  imagen_ampliada.setAttribute("src", "img/" + rutaFoto);
 }
