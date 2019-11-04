@@ -57,3 +57,30 @@ h1 span {
   background-color: grey;
   display: inline-block;
 }
+
+#caja_imagen {
+  width: 100%;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.6);
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  display: none;
+  justify-content: center;
+  align-items: center;
+}
+
+
+#flecha_izquierda,
+#flecha_derecha {
+  width: 50px;
+}
+
+#flecha_derecha {
+  transform: rotate(180deg);
+}
+
+#imagen_ampliada {
+  width: 50%;;
+  
+}
