@@ -21,7 +21,6 @@ function cargaImagenes() {
   for (nombreFoto in array_fototeca) {
     let objetoImagen = document.createElement("img");
     objetoImagen.setAttribute("src", `img/${array_fototeca[nombreFoto]}`);
-    objetoImagen.setAttribute("id", array_fototeca[nombreFoto]);
     document.querySelector("#fototeca").append(objetoImagen);
     objetoImagen.addEventListener("dblclick", agregarGaleria);
   }
