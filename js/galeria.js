@@ -12,21 +12,22 @@ var array_galeria = [];
 var posicion;
 
 window.onload = () => {
-  cargaImagenes();
-  cerrarImagenAmpliada();
+  recuperarLocalStorage();
+  cargarImagenesFototeca();
+  cerrarFotoAmpliada();
   activarFlechas();
 };
 
-function cargaImagenes() {
+function cargarImagenesFototeca() {
   for (nombreFoto in array_fototeca) {
     let objetoImagen = document.createElement("img");
     objetoImagen.setAttribute("src", `img/${array_fototeca[nombreFoto]}`);
     document.querySelector("#fototeca").append(objetoImagen);
-    objetoImagen.addEventListener("dblclick", agregarGaleria);
+    objetoImagen.addEventListener("dblclick", agregarFotoGaleria);
   }
 }
 
-function agregarGaleria() {
+function agregarFotoGaleria() {
   let rutaFoto = this.getAttribute("src");
   let slash = rutaFoto.lastIndexOf("/");
   let Foto = rutaFoto.substring(slash + 1);
@@ -35,6 +36,7 @@ function agregarGaleria() {
   } else {
     array_galeria.push(Foto);
     mostrarenGaleria(array_galeria);
+    guardarLocalStorage(array_galeria);
   }
   console.log(array_galeria);
 }
@@ -70,6 +72,7 @@ function borrarFoto() {
   );
   array_galeria.splice(indexFoto, 1);
   seccionGaleria.removeChild(cajaContenedoraImagen);
+  guardarLocalStorage(array_galeria);
 }
 
 function ampliaFoto() {
@@ -80,7 +83,7 @@ function ampliaFoto() {
   document.querySelector("#caja_imagen").style.display = "flex";
 }
 
-function cerrarImagenAmpliada() {
+function cerrarFotoAmpliada() {
   let imagen = document.querySelector("#caja_imagen");
   imagen.addEventListener("click", function() {
     $("#caja_imagen").fadeOut(1000, "linear");
@@ -124,4 +127,21 @@ function Anterior(event) {
   }
   rutaFoto = array_galeria[posicion];
   imagen_ampliada.setAttribute("src", "img/" + rutaFoto);
+}
+
+function guardarLocalStorage(array_galeria) {
+  if (array_galeria.length == 0) {
+    localStorage.removeItem("galeria_imagenes");
+  } else {
+    let arrayTexto = array_galeria.join("-");
+    localStorage.setItem("galeria_imagenes", arrayTexto);
+  }
+}
+
+function recuperarLocalStorage() {
+  if (localStorage.getItem("galeria_imagenes") != undefined) {
+    let arrayTexto = localStorage.getItem("galeria_imagenes");
+    array_galeria = arrayTexto.split("-");
+    mostrarenGaleria(array_galeria);
+  }
 }
